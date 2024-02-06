@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlsn:th="https://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
+    
 </head>
 
 <body>
-    <a href="/register"><button>register</button></a>
-    <a href="/delete"><button>delete</button></a>
-    <a href="/att"><button>att</button></a>
+    <p id="pe" th:text="${num}">num</p>
+    <div id="tables">
+    </div>
     
-    <button>exibit</button>
+
+    <script>
+        let numOfFuncionarios = document.getElementById("pe").innerHTML;
+        // const divider = document.getElementById("tables")
+
+        // for (let i = 0; i < numOfFuncionarios; i++) {
+        //     let table = document.createElement('div');
+        //     table.id = `table${i}`;
+        //     let value = i+1
+        //     table.innerHTML = '<p th:text="${nome' + value + '}">nome</p><p th:text="${email' + value + '}">email</p><p th:text="${id' + value + '}">id</p><p th:text="${idade' + value + '}">idade</p>'
+        //     divider.appendChild(table)
+        // }
+    </script>
+
 </body>
-    
+   
 </html>
