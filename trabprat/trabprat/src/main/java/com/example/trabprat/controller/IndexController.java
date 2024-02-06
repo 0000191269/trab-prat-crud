@@ -5,7 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.example.trabprat.model.User;
+
+import com.example.trabprat.model.Funcionario;
+import com.example.trabprat.model.Sistema;
 
 @Controller
 public class IndexController {
@@ -16,10 +18,8 @@ public class IndexController {
     }
 
     @PostMapping("/register")
-    public String userRegistration(@ModelAttribute User user, Model model) {
-        System.out.println(user.toString());
-        model.addAttribute("username", user.getName());
-        model.addAttribute("password", user.getPasswd());
-        return "welcome";
+    public String userRegistration(@ModelAttribute Funcionario f, Model model) {
+        Sistema.addFuncionario(f);
+        return "index";
     }
 }
