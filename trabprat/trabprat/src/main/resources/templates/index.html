@@ -9,23 +9,15 @@
 </head>
 
 <body>
-    <p id="pe" th:text="${num}">num</p>
-    <div id="tables">
-    </div>
-    
-
-    <script>
-        let numOfFuncionarios = document.getElementById("pe").innerHTML;
-        // const divider = document.getElementById("tables")
-
-        // for (let i = 0; i < numOfFuncionarios; i++) {
-        //     let table = document.createElement('div');
-        //     table.id = `table${i}`;
-        //     let value = i+1
-        //     table.innerHTML = '<p th:text="${nome' + value + '}">nome</p><p th:text="${email' + value + '}">email</p><p th:text="${id' + value + '}">id</p><p th:text="${idade' + value + '}">idade</p>'
-        //     divider.appendChild(table)
-        // }
-    </script>
+    <form action="/buscar" method="get">
+        <label for="id"></label>
+        <input type="text" name="id">
+        <button type="submit">enter</button>
+    </form>
+    <p th:text="${nome}">nome</p>
+    <p th:text="${idade}">idade</p>
+    <p th:text="${email}">email</p>
+    <p th:text="${id}">id</p>
 
 </body>
    

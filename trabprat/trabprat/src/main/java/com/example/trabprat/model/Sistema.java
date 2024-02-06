@@ -12,19 +12,21 @@ public final class Sistema {
         return funcionarios;
     }
 
-    public static void removeFuncionario(String nome) {
+    public static Funcionario getFuncionario(String nome) {
         for (int i = 0; i < Sistema.funcionarios.size(); i++) {
             if (Sistema.funcionarios.get(i).getNome() == nome) {
-                Sistema.funcionarios.remove(i);
+                return Sistema.funcionarios.get(i);
             }
         }
+        return null;
     }
 
-    public static void removeFuncionario(int id) {
+    public static Funcionario getFuncionario(int id) {
         for (int i = 0; i < Sistema.funcionarios.size(); i++) {
             if (Sistema.funcionarios.get(i).getId() == id) {
-                Sistema.funcionarios.remove(i);
+                return Sistema.funcionarios.get(i);
             }
         }
+        return null;
     }
 } 
