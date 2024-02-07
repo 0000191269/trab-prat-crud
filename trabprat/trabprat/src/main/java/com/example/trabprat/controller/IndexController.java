@@ -47,7 +47,7 @@ public class IndexController {
     public String deleteRedirect() {
         if (Sistema.search) {
             Sistema.search = false;
-            return "redirect:/update";
+            return "redirect:/delete";
         } else {
             return "redirect:/search";
         }
