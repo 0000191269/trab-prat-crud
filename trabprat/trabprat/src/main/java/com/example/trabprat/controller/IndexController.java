@@ -5,9 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.trabprat.model.Funcionario;
 import com.example.trabprat.model.SearchId;
@@ -37,7 +34,17 @@ public class IndexController {
     }
 
     @GetMapping("/updateRedirect")
-    public String replaceRedirect() {
+    public String updateRedirect() {
+        if (Sistema.search) {
+            Sistema.search = false;
+            return "redirect:/update";
+        } else {
+            return "redirect:/search";
+        }
+    }
+
+    @GetMapping("/deleteRedirect")
+    public String deleteRedirect() {
         if (Sistema.search) {
             Sistema.search = false;
             return "redirect:/update";
@@ -65,7 +72,7 @@ public class IndexController {
             model.addAttribute("id", funcionario.getId());
             return "search";
         } else {
-            model.addAttribute("notFound", "funcionario nao encontrado");
+            model.addAttribute("notFound", "Funcionário não Encontrado");
             return "search";
         }
     }

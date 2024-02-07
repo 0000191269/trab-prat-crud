@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html xmlsn:th="https://www.thymeleaf.org">
+<html lang="pt-br" data-bs-theme="dark" xmlsn:th="https://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
 
 </head>
 
 <body>
-    <a href="/addRedirect"><button>add</button></a>
-    <a href="/searchRedirect"><button>search</button></a>
+    <div class="container2" style="display: flex; align-items: center; justify-content: center; padding-top: 60px;" >
+            <h1>Gerenciamento de Funcionário</h1>
+    </div>  
+    <div class="container1" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+            <a href="/addRedirect">
+                <button type="button" class="btn btn-outline-info"
+                style="--bs-btn-padding-y: 20px; --bs-btn-padding-x: 40px; --bs-btn-font-size: 30px;">
+                Adicionar Funcionário
+                </button>
+            </a>
+        <a href="/searchRedirect">
+            <button type="button" class="btn btn-outline-info"
+            style="--bs-btn-padding-y: 20px; --bs-btn-padding-x: 40px; --bs-btn-font-size: 30px; margin-left: 22px;">
+            Buscar Funcionário
+            </button>
+        </a>
+            
+    </div>
 </body>
 
 </html>
