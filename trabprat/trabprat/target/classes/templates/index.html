@@ -5,20 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
-    
+
 </head>
 
 <body>
-    <form action="/buscar" method="get">
-        <label for="id"></label>
-        <input type="text" name="id">
-        <button type="submit">enter</button>
-    </form>
-    <p th:text="${nome}">nome</p>
-    <p th:text="${idade}">idade</p>
-    <p th:text="${email}">email</p>
-    <p th:text="${id}">id</p>
-
+    <a href="/addRedirect"><button>add</button></a>
+    <a href="/searchRedirect"><button>search</button></a>
 </body>
-   
+
 </html>
