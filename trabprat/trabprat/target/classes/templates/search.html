@@ -11,10 +11,25 @@
     <div>
         <form action="/result" method="get">
             <label for="id"></label>
-            <input type="text" name="id">
-            <button type="submit">enter</button>
+            <input type="text" name="id" required>
+            <button type="submit">enter</button><br>
         </form>
+        <div>
+            <p th:text="${notFound}"></p>
+            <p class="result-txt" th:text="${nome}">nome</p>
+            <p class="result-txt" th:text="${idade}">idade</p>
+            <p class="result-txt" th:text="${email}">email</p>
+            <p class="result-txt" th:text="${id}">id</p>
+            <a href="/updateRedirect"><button>update</button></a>
+            <a href="/deleteRedirect"><button>delete</button></a>
+
+
+
+        </div>
     </div>
+    <script>
+
+    </script>
 </body>
 
 </html>

@@ -21,14 +21,14 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/rootRedirect")
+    public String redirectToRoot() {
+        return "redirect:/";
+    }
+
     @GetMapping("/addRedirect")
     public String redirectToAdd() {
         return "redirect:/add";
-    }
-
-    @GetMapping("/add")
-    public String addPage() {
-        return "add";
     }
 
     @GetMapping("/searchRedirect")
@@ -36,20 +36,62 @@ public class IndexController {
         return "redirect:/search";
     }
 
+    @GetMapping("/updateRedirect")
+    public String replaceRedirect() {
+        if (Sistema.search) {
+            Sistema.search = false;
+            return "redirect:/update";
+        } else {
+            return "redirect:/search";
+        }
+    }
+
+    @GetMapping("/deleteRedirect")
+    public String deleteRedirect() {
+        if (Sistema.search) {
+            Sistema.search = false;
+            return "redirect:/delete";
+        } else {
+            return "redirect:/search";
+        }
+    }
+
+    @GetMapping("/delete")
+    public String deletePage() {
+        return "deleted";
+    }
+
     @GetMapping("/result")
     public String result(@ModelAttribute SearchId id, Model model) {
+        Sistema.search = false;
         Sistema.addFuncionario(new Funcionario("erick", "321", "gamil@email.com", 18));
         Sistema.addFuncionario(new Funcionario("pedro", "abc", "email@email.com", 18));
-        Funcionario f2 = Sistema.getFuncionario(id.getId());
-        model.addAttribute("nome", f2.getNome());
-        model.addAttribute("idade", f2.getIdade());
-        model.addAttribute("email", f2.getEmail());
-        model.addAttribute("id", f2.getId());
-        return "result";
+        Funcionario funcionario = Sistema.getFuncionario(id.getId());
+        if (funcionario != null) {
+            Sistema.search = true;
+            model.addAttribute("nome", funcionario.getNome());
+            model.addAttribute("idade", funcionario.getIdade());
+            model.addAttribute("email", funcionario.getEmail());
+            model.addAttribute("id", funcionario.getId());
+            return "search";
+        } else {
+            model.addAttribute("notFound", "funcionario nao encontrado");
+            return "search";
+        }
     }
 
     @GetMapping("/search")
     public String userSearch() {
         return "search";
+    }
+
+    @GetMapping("/add")
+    public String addPage() {
+        return "add";
+    }
+
+    @GetMapping("/update")
+    public String replacePage() {
+        return "update";
     }
 }

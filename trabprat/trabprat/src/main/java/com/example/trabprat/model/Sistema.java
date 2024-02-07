@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public final class Sistema {
     public static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
-    public static int currentSearchId;
+    public static boolean search;
 
     public static void addFuncionario(Funcionario f) {
         funcionarios.add(f);
