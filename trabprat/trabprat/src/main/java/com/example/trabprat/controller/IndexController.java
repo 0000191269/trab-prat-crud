@@ -46,28 +46,18 @@ public class IndexController {
         }
     }
 
-    @GetMapping("/deleteRedirect")
-    public String deleteRedirect() {
-        if (Sistema.search) {
-            Sistema.search = false;
-            return "redirect:/delete";
-        } else {
-            return "redirect:/search";
-        }
-    }
-
     @GetMapping("/delete")
     public String deletePage() {
-        return "deleted";
+        Sistema.RemoveFuncionario(Sistema.currentFuncionarioId);
+        return "redirect:/";
     }
 
     @GetMapping("/result")
     public String result(@ModelAttribute SearchId id, Model model) {
         Sistema.search = false;
-        Sistema.addFuncionario(new Funcionario("erick", "321", "gamil@email.com", 18));
-        Sistema.addFuncionario(new Funcionario("pedro", "abc", "email@email.com", 18));
         Funcionario funcionario = Sistema.getFuncionario(id.getId());
         if (funcionario != null) {
+            Sistema.currentFuncionarioId = id.getId();
             Sistema.search = true;
             model.addAttribute("nome", funcionario.getNome());
             model.addAttribute("idade", funcionario.getIdade());
@@ -93,5 +83,23 @@ public class IndexController {
     @GetMapping("/update")
     public String replacePage() {
         return "update";
+    }
+
+    @GetMapping("/updateFunc")
+    public String updateFunc(@ModelAttribute Funcionario f, Model model) {
+        if (f != null) {
+            Sistema.getFuncionario(Sistema.currentFuncionarioId).setNome(f.getNome());
+            Sistema.getFuncionario(Sistema.currentFuncionarioId).setEmail(f.getEmail());
+            Sistema.getFuncionario(Sistema.currentFuncionarioId).setIdade(f.getIdade());
+            Sistema.getFuncionario(Sistema.currentFuncionarioId).setSenha(f.getSenha());
+        }
+        return "index";
+    
+    }
+
+    @PostMapping("/addFunc")
+    public String addFunc(@ModelAttribute Funcionario f, Model model) {
+        Sistema.addFuncionario(f);
+        return "redirect:/";
     }
 }

@@ -8,7 +8,19 @@
 </head>
 
 <body>
-    <h1>add</h1>
+    <a href=""></a>
+    <form action="/addFunc" method="post" style="display:flex; flex-direction: column; width: 200px;">
+        <label for="nome">nome: </label>
+        <input type="text" name="nome" required>
+        <label for="email">email</label>
+        <input type="text" name="email" required>
+        <label for="senha">senha</label>
+        <input type="password" name="senha" required>
+        <label for="idade">idade</label>
+        <input type="text" name="idade" required>
+        <input type="submit" onclick="alert('Funcionario cadastrado com sucesso')">
+    </form>
+    <a href="/rootRedirect"><button>cancel</button></a>
 </body>
 
 </html>

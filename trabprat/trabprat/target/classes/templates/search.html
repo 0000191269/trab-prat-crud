@@ -10,7 +10,7 @@
 <body>
     <div>
         <form action="/result" method="get">
-            <label for="id"></label>
+            <label for="id">id:</label>
             <input type="text" name="id" required>
             <button type="submit">enter</button><br>
         </form>
@@ -20,15 +20,12 @@
             <p class="result-txt" th:text="${idade}">idade</p>
             <p class="result-txt" th:text="${email}">email</p>
             <p class="result-txt" th:text="${id}">id</p>
-            <a href="/updateRedirect"><button>update</button></a>
-            <a href="/deleteRedirect"><button>delete</button></a>
-
-
-
+            <a href="/update"><button>update</button></a>
+            <a href="/delete"><button onclick="alert('Funcionario remivido com sucesso')">delete</button></a>
+            <a href="/"><button>return</button></a>
         </div>
     </div>
     <script>
-
     </script>
 </body>
 
